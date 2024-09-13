@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import ERC20ABI from "../../data/abis/ERC20ABI.json";
 import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 import { ethers } from "ethers";
+import { useNotifications } from "@toolpad/core";
 
 export default function Modal({
   open,
@@ -16,6 +17,7 @@ export default function Modal({
   handleSelect,
   Tokens,
 }) {
+  const notif = useNotifications();
   const [Coins, setCoins] = useState([]);
   const { chainId } = useWeb3ModalAccount();
   const [showModal, setShowModal] = useState(false);
@@ -84,6 +86,10 @@ export default function Modal({
             });
           } catch (e) {
             console.log(e);
+            notif.show("Couldn't fetch token data, are you sure its a token?", {
+              autoHideDuration: 3000,
+              severity: "error",
+            });
           }
         }
         setLoading(false);

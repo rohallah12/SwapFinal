@@ -15,10 +15,12 @@ import ERC20ABI from "@/data/abis/ERC20ABI";
 import { getQoute } from "../paraswap/getQoute";
 import { fixedPoint } from "../utils/decimals";
 import CircularProgress from "@mui/material/CircularProgress";
-import { sign } from "crypto";
+import PercentIcon from "@mui/icons-material/Percent";
 import Accordion from "./Accordion";
 import Popup from "./PopUp";
+import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import ToggleSwitch from "./ToggleSwitch";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export default function Home() {
   const { open: openModal, close } = useWeb3Modal();
@@ -34,13 +36,15 @@ export default function Home() {
     choosetype: "Auto",
     tradeOption: false,
   });
+  const [provider, setProvider] = useState(
+    new ethers.JsonRpcProvider(Providers[1])
+  );
 
   const [balances, setBalances] = useState([
     ethers.getBigInt(0),
     ethers.getBigInt(0),
   ]);
   const notif = useNotifications();
-  const provider = useRef(new ethers.JsonRpcProvider(Providers[1]));
 
   const [selectedToken, setSelectedToken] = React.useState([Tokens[1][0], {}]);
   const [amounts, setAmounts] = React.useState([0, 0]);
@@ -125,6 +129,17 @@ export default function Home() {
     }
     setSelectedToken([...item1]);
     setSwaped(false);
+  };
+
+  const getButtonDisabled = () => {
+    const mode = getButtonText();
+    return (
+      noLP ||
+      loadingRate ||
+      (mode == "Swap" && !selectedToken[1].address) ||
+      loadingApprove ||
+      (mode == "Swap" && amountOut.toString() == "0")
+    );
   };
 
   const getButtonText = () => {
@@ -224,7 +239,7 @@ export default function Home() {
             const tokenContract = new ethers.Contract(
               selectedToken[0].address,
               ERC20ABI,
-              provider.current
+              provider
             );
             const allowance = await tokenContract.allowance(address, spender);
             setAllowance(ethers.getBigInt(allowance));
@@ -249,7 +264,15 @@ export default function Home() {
             ERC20ABI,
             signer
           );
+          notif.show("Confirm the approve in your wallet!", {
+            autoHideDuration: 3000,
+            severity: "info",
+          });
           const tx = await tokenContract.approve(spender, amountIn);
+          notif.show("Transaction sent, waiting for confirmation!", {
+            autoHideDuration: 3000,
+            severity: "info",
+          });
           const recipient = await tx.wait(1);
           notif.show("Approved succesfully!", {
             autoHideDuration: 3000,
@@ -257,6 +280,10 @@ export default function Home() {
           });
           await getAllowance(spender);
         } catch (e) {
+          notif.show("Approving faild!", {
+            autoHideDuration: 3000,
+            severity: "error",
+          });
           console.log(e);
         } finally {
           setLoadingApprove(false);
@@ -323,12 +350,12 @@ export default function Home() {
           let balance;
           try {
             if (token.native) {
-              balance = await provider.current.getBalance(address);
+              balance = await provider.getBalance(address);
             } else {
               const tokenContract = new ethers.Contract(
                 token.address,
                 ERC20ABI,
-                provider.current
+                provider
               );
               balance = await tokenContract.balanceOf(address);
             }
@@ -393,7 +420,8 @@ export default function Home() {
   useEffect(() => {
     if (isConnected) {
       if (address) {
-        fetchBalances();
+        fetchBalances(selectedToken[0], 0);
+        fetchBalances(selectedToken[1], 1);
       }
     }
   }, [address, isConnected]);
@@ -404,7 +432,7 @@ export default function Home() {
       if (Tokens[chainId]) {
         setDefaultTokens(Tokens[chainId]);
         setSelectedToken([Tokens[chainId][0], {}]);
-        provider.current = new ethers.JsonRpcProvider(Providers[chainId]);
+        setProvider(new ethers.JsonRpcProvider(Providers[chainId]))
       } else {
         notif.show("This chain is not supported!", {
           autoHideDuration: 3000,
@@ -429,7 +457,7 @@ export default function Home() {
       <Header />
       <main className=" flex flex-col items-center py-24">
         <Modal
-          provider={provider.current}
+          provider={provider}
           Tokens={defaultTokens}
           open={open}
           handleOpen={handleOpen}
@@ -459,9 +487,10 @@ export default function Home() {
               <div className="flex justify-between">
                 <div className="px-1 border border-gray-700 flex justify-between rounded-full mx-1 my-2 w-[60%] md:w-[40%]">
                   <button
-                    onClick={() =>
-                      setPopUpValues({ ...popUpValues, choosetype: "Auto" })
-                    }
+                    onClick={() => {
+                      setSlippage(50);
+                      setPopUpValues({ ...popUpValues, choosetype: "Auto" });
+                    }}
                     className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Auto" ? "bg-blue-500" : ""} rounded-full`}
                   >
                     Auto
@@ -656,26 +685,50 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <Accordion name={"Description"}>
+          <Accordion name={"Details"}>
             <div className="md:flex justify-between items-start bg-black h-fit text-white p-5">
-              <div className="flex flex-col items-start w-1/3 text-gray-300">
-                <span>Slippage: {slippage / 100}%</span>
-                <span>Gas Cost: {gasFee.toString()}$</span>
-                <span>
-                  Deadline:{" "}
-                  {deadline != 0
-                    ? new Date(deadline * 1000).toISOString()
-                    : deadline}
+              <div className="flex flex-col items-start w-1/2 text-gray-300">
+                <span className="text-xs">
+                  <FiberManualRecordIcon
+                    sx={{ width: 10 }}
+                    color="primary"
+                  ></FiberManualRecordIcon>
+                  <b className="ml-1">Slippage:</b>{" "}
+                  <span className="text-gray-400">{slippage / 100}%</span>
+                </span>
+                <span className="text-xs">
+                  <FiberManualRecordIcon
+                    sx={{ width: 10 }}
+                    color="primary"
+                  ></FiberManualRecordIcon>
+                  <b className="ml-1">Gas Cost:</b>{" "}
+                  <span className="text-gray-400">{gasFee.toString()}$</span>
                 </span>
               </div>
-              <div className="flex flex-col items-start w-2/3 text-gray-300">
-                <span>
-                  Amount To Sell: {fixedPoint(amounts[0].toString(), 8)}{" "}
-                  {selectedToken[0]?.symbol}
+              <div className="flex flex-col items-start w-1/2 text-gray-300">
+                <span className="flex gap-1 items-center text-xs">
+                  <FiberManualRecordIcon
+                    sx={{ width: 10 }}
+                    color="primary"
+                  ></FiberManualRecordIcon>
+                  <b>Sell:</b>{" "}
+                  <span className="text-gray-400">
+                    {fixedPoint(amounts[0].toString(), 8)}{" "}
+                    {selectedToken[0]?.symbol}
+                  </span>
+                  <Logo token={selectedToken[0]} size={15}></Logo>
                 </span>
-                <span>
-                  Amount To Receive: {fixedPoint(amounts[1].toString(), 8)}{" "}
-                  {selectedToken[1]?.symbol}
+                <span className="flex gap-1 items-center text-xs">
+                  <FiberManualRecordIcon
+                    sx={{ width: 10 }}
+                    color="primary"
+                  ></FiberManualRecordIcon>
+                  <b>Buy:</b>{" "}
+                  <span className="text-gray-400">
+                    {fixedPoint(amounts[1].toString(), 8)}{" "}
+                    {selectedToken[1]?.symbol}
+                  </span>
+                  <Logo token={selectedToken[1]} size={15}></Logo>
                 </span>
               </div>
             </div>
@@ -689,22 +742,8 @@ export default function Home() {
           <div>
             <button
               style={{
-                opacity:
-                  noLP ||
-                  loadingRate ||
-                  !selectedToken[1].address ||
-                  loadingApprove ||
-                  amountOut.toString() == "0"
-                    ? "0.6"
-                    : "1",
-                pointerEvents:
-                  noLP ||
-                  loadingRate ||
-                  !selectedToken[1].address ||
-                  loadingApprove ||
-                  amountOut.toString() == "0"
-                    ? "none"
-                    : "all",
+                opacity: getButtonDisabled() ? "0.6" : "1",
+                pointerEvents: getButtonDisabled() ? "none" : "all",
               }}
               onClick={() => {
                 if (getButtonText() == "Connect") {

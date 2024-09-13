@@ -15,7 +15,7 @@ const Accordion = ({ name, name2, children }) => {
     <div className="">
       <div className="bg-black rounded m-0 my-2">
         <button
-          className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-white bg-black rounded-t hover:bg-black rounded focus:outline-none"
+          className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-white bg-black rounded-t hover:bg-black rounded focus:outline-none font-bold"
           onClick={() => toggleAccordion(1)}
         >
           {name}

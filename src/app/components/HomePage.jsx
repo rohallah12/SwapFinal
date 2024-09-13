@@ -62,13 +62,16 @@ export default function Home() {
   const [srcDstUSD, setDstInUsd] = useState(0);
   const [amountIn, setAmountIn] = useState(ethers.getBigInt(0));
   const [amountOut, setAmountOut] = useState(ethers.getBigInt(0));
-  const [slippage, setSlippage] = useState(0);
-  const [deadline, setDeadline] = useState(0);
+  const [slippage, setSlippage] = useState(50);
+  const [deadline, setDeadline] = useState(300);
   const [fee, setFee] = useState(ethers.getBigInt(0));
   const [gasFee, setGasFee] = useState(ethers.getBigInt(0));
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = (val) => setOpen(val);
   const tokensSum = ethers.getBigInt(0);
+
+  const handleSlippage = (value) => setSlippage(value);
+  const handleSetDeadline = (value) => setDeadline(value);
 
   const SwapCoins = () => {
     const first = selectedToken[0];
@@ -77,6 +80,7 @@ export default function Home() {
     setAmounts([ethers.getBigInt(0), ethers.getBigInt(0)]);
     setAmountOut(ethers.getBigInt(0));
     setAmountIn(ethers.getBigInt(0));
+    setBalances([balances[1], balances[0]]);
     setRates([rates[1], rates[0]]);
   };
 
@@ -130,7 +134,7 @@ export default function Home() {
       if (noLP) {
         return "Insufficient Liquidity";
       } else {
-        if (loadingApprove) {
+        if (loadingApprove || loadingSwap) {
           return (
             <Box
               sx={{ display: "flex", marginLeft: "auto", marginRight: "auto" }}
@@ -264,12 +268,16 @@ export default function Home() {
   const swap = async () => {
     setLoadingSwap(true);
     try {
-      const result = await getPrice(
+      notif.show("Getting best swap path!", {
+        autoHideDuration: 1500,
+        severity: "info",
+      });
+      const result = await getQoute(
         chainId,
         slippage,
         amountIn,
-        selectedToken[0].address,
-        selectedToken[1].address,
+        selectedToken[0],
+        selectedToken[1],
         address,
         true,
         address
@@ -278,51 +286,58 @@ export default function Home() {
       if (params) {
         const provider = new ethers.BrowserProvider(window.ethereum);
         const signer = await provider.getSigner(address);
-        const tx = await signer.sendTransaction(txParams);
+        notif.show("Confirm the swap in your wallet!", {
+          autoHideDuration: 5000,
+          severity: "info",
+        });
+        const tx = await signer.sendTransaction(params);
+        notif.show("Transaction sent, waiting for confirmation!", {
+          autoHideDuration: 5000,
+          severity: "info",
+        });
         await tx.wait(1);
         notif.show("Swapped succesfully!", {
           autoHideDuration: 3000,
           severity: "success",
         });
+        fetchBalances(selectedToken[0], 0);
+        fetchBalances(selectedToken[1], 1);
       }
     } catch (e) {
       notif.show("Swapping faild!", {
         autoHideDuration: 3000,
         severity: "error",
       });
+      console.log(e);
     } finally {
       setLoadingSwap(false);
     }
   };
 
   //Fetch balance of token 1 and token 2
-  const fetchBalances = async () => {
+  const fetchBalances = async (token, index) => {
     if (isConnected) {
       if (address) {
-        let newBalances = [];
-        for (let i = 0; i < 2; i++) {
-          if (selectedToken[i]?.address) {
-            let balance;
-            try {
-              if (selectedToken[i].native) {
-                balance = await provider.current.getBalance(address);
-              } else {
-                const tokenContract = new ethers.Contract(
-                  selectedToken[i].address,
-                  ERC20ABI,
-                  provider.current
-                );
-                balance = await tokenContract.balanceOf(address);
-              }
-              newBalances[i] = balance;
-            } catch (e) {
-              newBalances[i] = ethers.getBigInt(0);
-              console.log(e);
+        if (token?.address) {
+          let newBalances = [...balances];
+          let balance;
+          try {
+            if (token.native) {
+              balance = await provider.current.getBalance(address);
+            } else {
+              const tokenContract = new ethers.Contract(
+                token.address,
+                ERC20ABI,
+                provider.current
+              );
+              balance = await tokenContract.balanceOf(address);
             }
+            newBalances[index] = balance;
+          } catch (e) {
+            newBalances[index] = ethers.getBigInt(0);
           }
+          setBalances([...newBalances]);
         }
-        console.log("balances ", JSON.stringify(newBalances));
-        setBalances(newBalances);
       }
     }
   };
@@ -338,12 +353,23 @@ export default function Home() {
     }[chainid];
   };
 
+  function isValidNumber(input) {
+    // Convert the input to a string and trim whitespace
+    const str = input.toString().trim();
+
+    // Regular expression to validate numbers
+    const regex = /^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/;
+
+    return regex.test(str);
+  }
+
   //||||||||||||||||||| Use Effects ||||||||||||||||||||||
 
   //@dev If one of tokens changed, update balances
   useEffect(() => {
     //if both tokens exists
-    fetchBalances();
+    fetchBalances(selectedToken[0], 0);
+    fetchBalances(selectedToken[1], 1);
     checkValid();
     if (!swaped) {
       if (selectedToken?.[1]) {
@@ -417,7 +443,12 @@ export default function Home() {
           </h2>
         </div>
         <div className="flex m-1 justify-end px-1 w-[90%] md:w-[60%] lg:w-[40%]">
-          <span onClick={() => setIsOpen(!isOpen)}>
+          <span
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(true);
+            }}
+          >
             <Gear fill={"white"} size={30} />
           </span>
           <Popup {...{ isOpen, setIsOpen }}>
@@ -431,7 +462,7 @@ export default function Home() {
                     onClick={() =>
                       setPopUpValues({ ...popUpValues, choosetype: "Auto" })
                     }
-                    className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Auto" ? "bg-gray-500" : ""} rounded-full`}
+                    className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Auto" ? "bg-blue-500" : ""} rounded-full`}
                   >
                     Auto
                   </button>
@@ -439,7 +470,7 @@ export default function Home() {
                     onClick={() =>
                       setPopUpValues({ ...popUpValues, choosetype: "Custom" })
                     }
-                    className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Custom" ? "bg-gray-500" : ""} rounded-full`}
+                    className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Custom" ? "bg-blue-500" : ""} rounded-full`}
                   >
                     Custom
                   </button>
@@ -448,12 +479,15 @@ export default function Home() {
                   <input
                     className={`text-lg w-[80%] text-right bg-black outline-none`}
                     disabled={popUpValues.choosetype == "Custom" ? false : true}
-                    onChange={(e) =>
-                      setPopUpValues({
-                        ...popUpValues,
-                        slippage: e.target.value,
-                      })
-                    }
+                    onChange={(e) => {
+                      if (isValidNumber(e.target.value)) {
+                        if (parseFloat(e.target.value) > 49)
+                          e.target.value = 49;
+                        setSlippage(
+                          Math.min(parseFloat(e.target.value) * 100, 4900)
+                        );
+                      }
+                    }}
                     type="text"
                     placeholder="0.5"
                   />
@@ -469,12 +503,14 @@ export default function Home() {
                 <div className="px-1 text-white items-center border border-gray-700 overflow-hidden flex justify-between rounded-3xl pe-2 mx-3 my-2">
                   <input
                     className="text-lg w-[75%] bg-black h-10 px-1 outline-none text-right"
-                    onChange={(e) =>
-                      setPopUpValues({
-                        ...popUpValues,
-                        minutes: e.target.value,
-                      })
-                    }
+                    onChange={(e) => {
+                      if (isValidNumber(e.target.value)) {
+                        setDeadline(
+                          Math.floor(Date.now() / 1000) +
+                            parseInt(e.target.value) * 60
+                        );
+                      }
+                    }}
                     type="text"
                     placeholder="1"
                   />
@@ -484,11 +520,11 @@ export default function Home() {
             </Accordion>
             <hr className="border-gray-800 " />
             <div className="flex items-center justify-between">
-              <div>
+              <div className="mt-4 p-2">
                 <div className="text-white text-lg">Default trade options</div>
                 <span className="text-white text-sm">
-                  The Uniswap client selects the cheapest trade option factoring
-                  price and network costs.
+                  The client selects the cheapest trade option factoring price
+                  and network costs.
                 </span>
               </div>
               <div className="w-[40%]">
@@ -548,7 +584,10 @@ export default function Home() {
                 {selectedToken[0].address
                   ? selectedToken[0].symbol +
                     " Balance: " +
-                    ethers.formatUnits(balances[0], selectedToken[0].decimals)
+                    ethers.formatUnits(
+                      balances[0] || "0",
+                      selectedToken[0].decimals
+                    )
                   : ""}
               </span>
             </div>
@@ -609,7 +648,10 @@ export default function Home() {
                 {selectedToken[1].address
                   ? selectedToken[1].symbol +
                     " Balance: " +
-                    ethers.formatUnits(balances[1], selectedToken[1].decimals)
+                    ethers.formatUnits(
+                      balances[1] || "0",
+                      selectedToken[1].decimals
+                    )
                   : ""}
               </span>
             </div>
@@ -617,9 +659,14 @@ export default function Home() {
           <Accordion name={"Description"}>
             <div className="md:flex justify-between items-start bg-black h-fit text-white p-5">
               <div className="flex flex-col items-start w-1/3 text-gray-300">
-                <span>Slippage: {slippage}%</span>
-                <span>Gas Cost: {gasFee}$</span>
-                <span>Deadline: {deadline}</span>
+                <span>Slippage: {slippage / 100}%</span>
+                <span>Gas Cost: {gasFee.toString()}$</span>
+                <span>
+                  Deadline:{" "}
+                  {deadline != 0
+                    ? new Date(deadline * 1000).toISOString()
+                    : deadline}
+                </span>
               </div>
               <div className="flex flex-col items-start w-2/3 text-gray-300">
                 <span>
@@ -646,14 +693,16 @@ export default function Home() {
                   noLP ||
                   loadingRate ||
                   !selectedToken[1].address ||
-                  loadingApprove
+                  loadingApprove ||
+                  amountOut.toString() == "0"
                     ? "0.6"
                     : "1",
                 pointerEvents:
                   noLP ||
                   loadingRate ||
                   !selectedToken[1].address ||
-                  loadingApprove
+                  loadingApprove ||
+                  amountOut.toString() == "0"
                     ? "none"
                     : "all",
               }}

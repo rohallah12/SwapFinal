@@ -13,7 +13,7 @@ const ToggleSwitch = ({popUpValues,setPopUpValues}) => {
       <div
         onClick={toggleSwitch}
         className={`${
-          enabled ? "bg-pink-500" : "bg-gray-300"
+          enabled ? "bg-blue-500" : "bg-gray-300"
         } relative inline-flex h-6 w-11 items-center rounded-full cursor-pointer transition-colors duration-300 ease-in-out`}
       >
         <span

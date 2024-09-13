@@ -29,7 +29,7 @@ const Popup = ({ isOpen, setIsOpen, children }) => {
       {isOpen && (
         <div
           ref={popupRef}
-          className="absolute top-7 mt-2 right-0 bg-black min-w-[18rem] md:min-w-[25rem] shadow-lg rounded p-2 z-10"
+          className="absolute top-8 right-1 mt-2 right-0 bg-black min-w-[18rem] md:min-w-[25rem] shadow-lg rounded p-3 z-10"
         >
           {children}
         </div>

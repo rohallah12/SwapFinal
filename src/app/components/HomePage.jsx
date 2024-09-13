@@ -432,7 +432,7 @@ export default function Home() {
       if (Tokens[chainId]) {
         setDefaultTokens(Tokens[chainId]);
         setSelectedToken([Tokens[chainId][0], {}]);
-        setProvider(new ethers.JsonRpcProvider(Providers[chainId]))
+        setProvider(new ethers.JsonRpcProvider(Providers[chainId]));
       } else {
         notif.show("This chain is not supported!", {
           autoHideDuration: 3000,
@@ -465,7 +465,7 @@ export default function Home() {
           // setSelectedToken={setSelectedToken}
           handleSelect={handleSelect}
         />
-        <div className="w-[80%] md:w-[60%] lg:w-[40%] flex justify-center items-center mb-4">
+        <div className="w-[80%] md:w-[60%] lg:w-[60%] flex justify-center items-center mb-4">
           <h2 className=" text-white text-xl md:text-5xl text-center lg:text-6xl">
             Multi-Chain Swap Demo
           </h2>
@@ -609,7 +609,18 @@ export default function Home() {
                   </button>
                 )}
               </div>
-              <span className="ps-7 text-xs text-gray-500">
+              <span
+                className="ps-7 text-xs text-gray-500"
+                onClick={() =>
+                  setAmounts([
+                    ethers.formatUnits(
+                      balances[0] || "0",
+                      selectedToken[0].decimals
+                    ),
+                    amounts[1],
+                  ])
+                }
+              >
                 {selectedToken[0].address
                   ? selectedToken[0].symbol +
                     " Balance: " +
@@ -673,7 +684,18 @@ export default function Home() {
                   </button>
                 )}
               </div>
-              <span className="ps-7 text-xs text-gray-500">
+              <span
+                className="ps-7 text-xs text-gray-500"
+                onClick={() =>
+                  setAmounts([
+                    amounts[0],
+                    ethers.formatUnits(
+                      balances[1] || "0",
+                      selectedToken[1].decimals
+                    ),
+                  ])
+                }
+              >
                 {selectedToken[1].address
                   ? selectedToken[1].symbol +
                     " Balance: " +

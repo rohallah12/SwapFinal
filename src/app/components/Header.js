@@ -22,11 +22,7 @@ const Header = () => {
               </nav>
             </div>
           </div>
-          <div
-            // bg-black overflow-hidden h-8
-            className="w-[40%]"
-          ></div>
-          <div className="flex flex-row gap-2">
+          <div className="flex items-center justify-between w-full md:w-[30%] flex-row gap-2">
             <w3m-network-button></w3m-network-button>
             <w3m-account-button />
           </div>

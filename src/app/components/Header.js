@@ -7,7 +7,7 @@ const Header = () => {
     <header className="bg-white bg-opacity-5 backdrop-filter backdrop-blur-lg fixed top-0 left-0 w-full z-10 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="md:flex items-center hidden ">
             <div>
               <nav className="space-x-4">
                 <a href="#" className="text-white hover:text-gray-600">

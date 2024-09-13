@@ -19,6 +19,7 @@ import MATIC from "./MATIC";
 import MOVR from "./MOVR";
 import X from "./X";
 import BASE from "./BASE";
+import Gear from "./Gear";
 import Unknown from "./question";
 export {
   MagnifingGlasses,
@@ -28,6 +29,7 @@ export {
   MATIC,
   USDT,
   MOVR,
+  Gear,
   BASE,
   ZKS,
   OP,

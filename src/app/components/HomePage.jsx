@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown, ArrowDown, ETH } from "@/assets/icons/index";
+import { ChevronDown, ArrowDown, ETH, Gear } from "@/assets/icons/index";
 import React, { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import Box from "@mui/material/Box";
@@ -16,6 +16,9 @@ import { getQoute } from "../paraswap/getQoute";
 import { fixedPoint } from "../utils/decimals";
 import CircularProgress from "@mui/material/CircularProgress";
 import { sign } from "crypto";
+import Accordion from "./Accordion";
+import Popup from "./PopUp";
+import ToggleSwitch from "./ToggleSwitch";
 
 export default function Home() {
   const { open: openModal, close } = useWeb3Modal();
@@ -26,6 +29,12 @@ export default function Home() {
   const [loadingRate, setLoadingRate] = React.useState(false);
   const [loadingApprove, setLoadingApprove] = React.useState(false);
   const [loadingSwap, setLoadingSwap] = React.useState(false);
+  const [popUpValues, setPopUpValues] = React.useState({
+    slippage: "auto",
+    choosetype: "Auto",
+    tradeOption: false,
+  });
+
   const [balances, setBalances] = useState([
     ethers.getBigInt(0),
     ethers.getBigInt(0),
@@ -57,7 +66,7 @@ export default function Home() {
   const [deadline, setDeadline] = useState(0);
   const [fee, setFee] = useState(ethers.getBigInt(0));
   const [gasFee, setGasFee] = useState(ethers.getBigInt(0));
-
+  const [isOpen, setIsOpen] = useState(false);
   const handleOpen = (val) => setOpen(val);
   const tokensSum = ethers.getBigInt(0);
 
@@ -392,7 +401,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="bg-gray-700 flex h-screen flex-col items-center p-24">
+      <main className=" flex flex-col items-center py-24">
         <Modal
           provider={provider.current}
           Tokens={defaultTokens}
@@ -403,11 +412,92 @@ export default function Home() {
           handleSelect={handleSelect}
         />
         <div className="w-[80%] md:w-[60%] lg:w-[40%] flex justify-center items-center mb-4">
-          <h2 className=" text-white text-5xl text-center lg:text-6xl">
+          <h2 className=" text-white text-xl md:text-5xl text-center lg:text-6xl">
             Multi-Chain Swap Demo
           </h2>
         </div>
-        <div className=" bg-black rounded-t-lg p-1 h-[20rem] w-[90%] md:w-[60%] lg:w-[40%]">
+        <div className="flex m-1 justify-end px-1 w-[90%] md:w-[60%] lg:w-[40%]">
+          <span onClick={() => setIsOpen(!isOpen)}>
+            <Gear fill={"white"} size={30} />
+          </span>
+          <Popup {...{ isOpen, setIsOpen }}>
+            <Accordion
+              name={`Max. slippage`}
+              name2={`${popUpValues.slippage || "auto"}`}
+            >
+              <div className="flex justify-between">
+                <div className="px-1 border border-gray-700 flex justify-between rounded-full mx-1 my-2 w-[60%] md:w-[40%]">
+                  <button
+                    onClick={() =>
+                      setPopUpValues({ ...popUpValues, choosetype: "Auto" })
+                    }
+                    className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Auto" ? "bg-gray-500" : ""} rounded-full`}
+                  >
+                    Auto
+                  </button>
+                  <button
+                    onClick={() =>
+                      setPopUpValues({ ...popUpValues, choosetype: "Custom" })
+                    }
+                    className={`text-lg text-white p-1 my-1 ${popUpValues.choosetype == "Custom" ? "bg-gray-500" : ""} rounded-full`}
+                  >
+                    Custom
+                  </button>
+                </div>
+                <div className="px-1 text-white items-center border border-gray-700 overflow-hidden flex justify-between rounded-2xl mx-1 my-2 w-[40%] md:w-[60%]">
+                  <input
+                    className={`text-lg w-[80%] text-right bg-black outline-none`}
+                    disabled={popUpValues.choosetype == "Custom" ? false : true}
+                    onChange={(e) =>
+                      setPopUpValues({
+                        ...popUpValues,
+                        slippage: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="0.5"
+                  />
+                  <span>%</span>
+                </div>
+              </div>
+            </Accordion>
+            <Accordion
+              name={`Transaction deadline`}
+              name2={`${popUpValues.minutes || "1"}m`}
+            >
+              <div className="">
+                <div className="px-1 text-white items-center border border-gray-700 overflow-hidden flex justify-between rounded-3xl pe-2 mx-3 my-2">
+                  <input
+                    className="text-lg w-[75%] bg-black h-10 px-1 outline-none text-right"
+                    onChange={(e) =>
+                      setPopUpValues({
+                        ...popUpValues,
+                        minutes: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="1"
+                  />
+                  <span>minutes</span>
+                </div>
+              </div>
+            </Accordion>
+            <hr className="border-gray-800 " />
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-white text-lg">Default trade options</div>
+                <span className="text-white text-sm">
+                  The Uniswap client selects the cheapest trade option factoring
+                  price and network costs.
+                </span>
+              </div>
+              <div className="w-[40%]">
+                <ToggleSwitch {...{ popUpValues, setPopUpValues }} />
+              </div>
+            </div>
+          </Popup>
+        </div>
+        <div className=" bg-black rounded-lg p-1 h-[20rem] w-[90%] md:w-[60%] lg:w-[40%]">
           <div className="bg-gray-800 flex items-center w-full h-[49.5%] rounded-lg">
             <div className="w-full">
               <div className="px-4">
@@ -425,7 +515,7 @@ export default function Home() {
                     pointerEvents: getDisabled() ? "none" : "all",
                   }}
                   disabled={validity}
-                  className="h-10 border-gray-600 border-0 outline-none text-white px-2 w-[65%] rounded bg-gray-800"
+                  className="h-10 border-gray-600 border-0 outline-none text-white px-2 w-[40%] md:w-[65%] rounded bg-gray-800"
                 />
                 {selectedToken[0]?.name ? (
                   <button
@@ -449,7 +539,7 @@ export default function Home() {
                     onClick={() => handleOpen(1)}
                     className="flex justify-between items-center btn bg-blue-600 rounded-full p-2 text-white"
                   >
-                    <span className="px-2">select Token</span>
+                    <span className="px-2 text-sm">select Token</span>
                     <ChevronDown fill={"white"} size={20} />
                   </button>
                 )}
@@ -486,7 +576,7 @@ export default function Home() {
                   value={amounts[1]}
                   disabled={validity}
                   onChange={(e) => convertToTarget(1, e.target.value)}
-                  className="h-10 border-gray-600 border-0 outline-none text-white px-2 w-[65%] rounded bg-gray-800"
+                  className="h-10 border-gray-600 border-0 outline-none text-white px-2 w-[40%] md:w-[65%] rounded bg-gray-800"
                 />
                 {selectedToken[1]?.name ? (
                   <button
@@ -510,7 +600,7 @@ export default function Home() {
                     onClick={() => handleOpen(2)}
                     className="flex justify-between items-center btn bg-blue-600 rounded-full p-2 text-white"
                   >
-                    <span className="px-2">select Token</span>
+                    <span className="px-2 text-sm">select Token</span>
                     <ChevronDown fill={"white"} size={20} />
                   </button>
                 )}
@@ -524,23 +614,25 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="flex justify-between items-start bg-black h-fit text-white p-5">
-            <div className="flex flex-col items-start w-1/3 text-gray-300">
-              <span>Slippage: {slippage}%</span>
-              <span>Gas Cost: {gasFee}$</span>
-              <span>Deadline: {deadline}</span>
+          <Accordion name={"Description"}>
+            <div className="md:flex justify-between items-start bg-black h-fit text-white p-5">
+              <div className="flex flex-col items-start w-1/3 text-gray-300">
+                <span>Slippage: {slippage}%</span>
+                <span>Gas Cost: {gasFee}$</span>
+                <span>Deadline: {deadline}</span>
+              </div>
+              <div className="flex flex-col items-start w-2/3 text-gray-300">
+                <span>
+                  Amount To Sell: {fixedPoint(amounts[0].toString(), 8)}{" "}
+                  {selectedToken[0]?.symbol}
+                </span>
+                <span>
+                  Amount To Receive: {fixedPoint(amounts[1].toString(), 8)}{" "}
+                  {selectedToken[1]?.symbol}
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col items-start w-2/3 text-gray-300">
-              <span>
-                Amount To Sell: {fixedPoint(amounts[0].toString(), 8)}{" "}
-                {selectedToken[0]?.symbol}
-              </span>
-              <span>
-                Amount To Receive: {fixedPoint(amounts[1].toString(), 8)}{" "}
-                {selectedToken[1]?.symbol}
-              </span>
-            </div>
-          </div>
+          </Accordion>
           {loadingRate && (
             <Box sx={{ width: "100%" }}>
               <LinearProgress />

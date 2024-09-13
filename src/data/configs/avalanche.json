@@ -1,0 +1,299 @@
+[
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "AVAX",
+    "name": "Avalanche Token",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/5805.png",
+    "price": { "USD": 22.14356345020426 },
+    "native": true,
+    "address" : "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 6,
+    "symbol": "USDC",
+    "name": "USD Coin",
+    "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png",
+    "price": { "USD": 1.0000807074636562 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 6,
+    "symbol": "USDT",
+    "name": "TetherToken",
+    "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/825.png",
+    "price": { "USD": 1.0003339188305853 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 6,
+    "symbol": "USDV",
+    "address": "0x323665443CEf804A3b5206103304BD4872EA4253",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28443.png",
+    "price": { "USD": 0.9963845381777027 },
+    "name": "USDV"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "BAL",
+    "address": "0xE15bCB9E0EA69e6aB9FA080c4c4A5632896298C3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/5728.png",
+    "price": { "USD": 1.9395269078479203 },
+    "name": "BAL"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "BETS",
+    "address": "0x94025780a1aB58868D9B2dBBB775f44b32e8E6e5",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/18453.png",
+    "price": { "USD": 0.00032610445486566756 },
+    "name": "BETS"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "JOE",
+    "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/11396.png",
+    "price": { "USD": 0.3097230683122775 },
+    "name": "JOE"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "METIS",
+    "address": "0xceCB301c2e2A04dD631428C386DD21db70716F8a",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/9640.png",
+    "price": { "USD": 31.44648383803275 },
+    "name": "METIS"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "MIM",
+    "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/162.png",
+    "price": { "USD": 0.9976511300959452 },
+    "name": "MIM"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "OP",
+    "address": "0xaC800FD6159c2a2CB8fC31EF74621eB430287a5A",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/11840.png",
+    "price": { "USD": 1.396318054487258 },
+    "name": "OP"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "OX",
+    "address": "0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29530.png",
+    "price": { "USD": 0.004218433704169384 },
+    "name": "OX"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 6,
+    "symbol": "REUNI",
+    "address": "0x9ed7E4B1BFF939ad473dA5E7a218C771D1569456",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/23996.png",
+    "price": { "USD": 0.1381163300650941 },
+    "name": "REUNI"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "STG",
+    "address": "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/18934.png",
+    "price": { "USD": 0.2858226112695806 },
+    "name": "STG"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "TENET",
+    "address": "0x788D86E00ab31Db859C3d6b80d5a9375801d7f2A",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24892.png",
+    "price": { "USD": 0.005522709962588802 },
+    "name": "TENET"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "WAGMI",
+    "address": "0xaf20f5f19698f1D19351028cd7103B63D30DE7d7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28184.png",
+    "price": { "USD": 0.005120512796938577 },
+    "name": "WAGMI"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "WBNB",
+    "address": "0xa9004A5421372E1D83fB1f85b0fc986c912f91f3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7192.png",
+    "price": { "USD": 534.2157287647093 },
+    "name": "WBNB"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "QI",
+    "address": "0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10237.png",
+    "price": { "USD": 0.00037615458194920895 },
+    "name": "QI"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "wstETH",
+    "address": "0x2Bbbdf97295F73175b12CC087cF446765931e1C3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/12409.png",
+    "price": { "USD": 2947.2188678381717 },
+    "name": "wstETH"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "SHRAP",
+    "address": "0xd402298a793948698b9a63311404FBBEe944eAfD",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28363.png",
+    "price": { "USD": 0.023225562301757697 },
+    "name": "SHRAP"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "UNIX",
+    "address": "0x6f97D3F120fBbDaacF1c9da61a8aD126b7426861",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/14915.png",
+    "price": { "USD": 0.0017133596020436899 },
+    "name": "UNIX"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "OSAK",
+    "address": "0x96E1056a8814De39c8c3Cd0176042d6ceCD807d7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/27533.png",
+    "price": { "USD": 2.7259857431423086e-7 },
+    "name": "OSAK"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "GMBL",
+    "address": "0x236626887687bf6a102269207f8f0A08549Ae4f4",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29233.png",
+    "price": { "USD": null },
+    "name": "GMBL"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "ITP",
+    "address": "0x2b1D36f5B61AdDAf7DA7ebbd11B35FD8cfb0DE31",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/22877.png",
+    "price": { "USD": 0.07250933625664681 },
+    "name": "ITP"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 8,
+    "symbol": "BTC.b",
+    "address": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/1.png",
+    "price": { "USD": 58631.23289151471 },
+    "name": "BTC.b"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "OX.old",
+    "address": "0x78a0A62Fba6Fb21A83FE8a3433d44C73a4017A6f",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/26543.png",
+    "price": { "USD": 0.004364158588220813 },
+    "name": "OX.old"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "ZRO",
+    "address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/26997.png",
+    "price": { "USD": 3.5734684381292614 },
+    "name": "ZRO"
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "COQ",
+    "name": "COQINU",
+    "address": "0x420FcA0121DC28039145009570975747295f2329",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28675.png",
+    "price": { "USD": 0.0000013207138283516333 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "EMDX",
+    "name": "EMDX Token",
+    "address": "0xe533B81297B820D2Eb2cd837263926596328E8D2",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/27007.png",
+    "price": { "USD": null }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "TECH",
+    "name": "NumberGoUpTech",
+    "address": "0x5Ac04b69bDE6f67C0bd5D6bA6fD5D816548b066a",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29680.png",
+    "price": { "USD": 0.000037809728110053305 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "FRAX",
+    "name": "Frax",
+    "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/6952.png",
+    "price": { "USD": 0.9966495104107757 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "MAI",
+    "name": "Mai Stablecoin",
+    "address": "0x5c49b268c9841AFF1Cc3B0a418ff5c3442eE3F3b",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10238.png",
+    "price": { "USD": 0.5278283347393774 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "WOO.e",
+    "name": "Wootrade Network",
+    "address": "0xaBC9547B534519fF73921b1FBA6E672b5f58D083",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7501.png",
+    "price": { "USD": 0.1459468865830708 }
+  },
+  {
+    "chainKey": "avalanche",
+    "decimals": 18,
+    "symbol": "VESTG",
+    "name": "veSTG",
+    "address": "0xCa0F57D295bbcE554DA2c07b005b7d6565a58fCE",
+    "price": { "USD": null }
+  }
+]

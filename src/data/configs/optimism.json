@@ -1,0 +1,359 @@
+[
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "ETH",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/2396.png",
+    "price": { "USD": 2504.313001517055 },
+    "name": "ETH",
+    "native": true,
+    "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 6,
+    "symbol": "USDC",
+    "name": "USD Coin",
+    "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png",
+    "price": { "USD": 1.0000807074636562 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 6,
+    "symbol": "USDT",
+    "name": "Tether USD",
+    "address": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/825.png",
+    "price": { "USD": 1.0003339188305853 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 6,
+    "symbol": "USDV",
+    "address": "0x323665443CEf804A3b5206103304BD4872EA4253",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28443.png",
+    "price": { "USD": 0.9963845381777027 },
+    "name": "USDV"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "BEETS",
+    "address": "0xb4Bc46bc6cB217B59ea8F4530BaE26Bf69F677f0",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/13244.png",
+    "price": { "USD": 0.019263364788342834 },
+    "name": "BEETS"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "mkUSD",
+    "address": "0x4591DBfF62656E7859Afe5e45f6f47D3669fBB28",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28094.png",
+    "price": { "USD": 0.9983180968466625 },
+    "name": "mkUSD"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "MIM",
+    "address": "0xB153FB3d196A8eB25522705560ac152eeEc57901",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/162.png",
+    "price": { "USD": 0.9976511300959452 },
+    "name": "MIM"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "OP",
+    "address": "0x4200000000000000000000000000000000000042",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/11840.png",
+    "price": { "USD": 1.396318054487258 },
+    "name": "OP"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 6,
+    "symbol": "REUNI",
+    "address": "0x9ed7E4B1BFF939ad473dA5E7a218C771D1569456",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/23996.png",
+    "price": { "USD": 0.1381163300650941 },
+    "name": "REUNI"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "STG",
+    "address": "0x296F55F8Fb28E498B858d0BcDA06D955B2Cb3f97",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/18934.png",
+    "price": { "USD": 0.2858226112695806 },
+    "name": "STG"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "TENET",
+    "address": "0x788D86E00ab31Db859C3d6b80d5a9375801d7f2A",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24892.png",
+    "price": { "USD": 0.005522709962588802 },
+    "name": "TENET"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "WAGMI",
+    "address": "0xaf20f5f19698f1D19351028cd7103B63D30DE7d7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28184.png",
+    "price": { "USD": 0.005120512796938577 },
+    "name": "WAGMI"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "TROVE",
+    "address": "0x348Fdfe2c35934A96C1353185F09D0F9efBAdA86",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/23580.png",
+    "price": { "USD": 0.0028934623796095867 },
+    "name": "TROVE"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "QI",
+    "address": "0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10237.png",
+    "price": { "USD": 0.00037615458194920895 },
+    "name": "QI"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "msUSD",
+    "address": "0x9dAbAE7274D28A45F0B65Bf8ED201A5731492ca0",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png",
+    "price": { "USD": 1.0000807074636562 },
+    "name": "msUSD"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "msETH",
+    "address": "0x1610e3c85dd44Af31eD7f33a63642012Dca0C5A5",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/2396.png",
+    "price": { "USD": 2504.313001517055 },
+    "name": "msETH"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "OSAK",
+    "address": "0xbFd5206962267c7b4b4A8B3D76AC2E1b2A5c4d5e",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/27533.png",
+    "price": { "USD": 2.7259857431423086e-7 },
+    "name": "OSAK"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "rsETH",
+    "address": "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29242.png",
+    "price": { "USD": 2563.834001917324 },
+    "name": "rsETH"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "weETH",
+    "address": "0x5A7fACB970D094B6C7FF1df0eA68D99E6e73CBFF",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28568.png",
+    "price": { "USD": 2507.708542403687 },
+    "name": "weETH"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "ITP",
+    "address": "0x2b1D36f5B61AdDAf7DA7ebbd11B35FD8cfb0DE31",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/22877.png",
+    "price": { "USD": 0.07250933625664681 },
+    "name": "ITP"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "ENA",
+    "address": "0x58538e6A46E07434d7E7375Bc268D3cb839C0133",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/30171.png",
+    "price": { "USD": 0.23157415359542707 },
+    "name": "ENA"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 8,
+    "symbol": "BTC.b",
+    "address": "0x2297aEbD383787A160DD0d9F71508148769342E3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/1.png",
+    "price": { "USD": 58631.23289151471 },
+    "name": "BTC.b"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "sUSDe",
+    "address": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29471.png",
+    "price": { "USD": 1.0966821471212616 },
+    "name": "sUSDe"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "USDe",
+    "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29470.png",
+    "price": { "USD": 0.9989341797098055 },
+    "name": "USDe"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "ZRO",
+    "address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/26997.png",
+    "price": { "USD": 3.5734684381292614 },
+    "name": "ZRO"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "rswETH",
+    "address": "0x2e846fd4FD8772F8D9FF8a51a456F5b3049C893f",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29974.png",
+    "price": { "USD": 2549.1446189441344 },
+    "name": "rswETH"
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "MODE",
+    "name": "Mode",
+    "address": "0x084382D1cc4f4DFD1769b1cC1Ac2A9b1f8365e90",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/31016.png",
+    "price": { "USD": 0.011860640370178352 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "pxETH",
+    "name": "Pirex Ether OFT",
+    "address": "0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4",
+    "price": { "USD": 2488.35 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "ORDER",
+    "name": "Orderly Network",
+    "address": "0x4E200fE2f3eFb977d5fd9c430A41531FB04d97B8",
+    "price": { "USD": 0.160662 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "CYBER",
+    "name": "CyberConnect",
+    "address": "0x14778860E937f509e651192a90589dE711Fb88a9",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24781.png",
+    "price": { "USD": 3.3003556175352537 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "MAHA",
+    "name": "MAHA.xyz",
+    "address": "0x6A661312938D22A2A0e27F585073E4406903990a",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/8043.png",
+    "price": { "USD": 1.6089769084157481 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "apxETH",
+    "name": "Autocompounding Pirex Ether OFT",
+    "address": "0x16Ed8E219cde31E14a80dCb6C9127A5EC6e88e46",
+    "price": { "USD": null }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 6,
+    "symbol": "USDC.e",
+    "name": "USD Coin",
+    "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png",
+    "price": { "USD": 1.0000807074636562 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "DAI",
+    "name": "Dai Stablecoin",
+    "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/4943.png",
+    "price": { "USD": 1.000019634167933 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "FRAX",
+    "name": "Frax",
+    "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/6952.png",
+    "price": { "USD": 0.9966495104107757 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "SUSD",
+    "name": "Synth sUSD",
+    "address": "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/2927.png",
+    "price": { "USD": 0.9956573131922182 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "LUSD",
+    "name": "LUSD Stablecoin",
+    "address": "0xc40F949F8a4e094D1b49a23ea9241D289B7b2819",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/9566.png",
+    "price": { "USD": 0.9988823637358986 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "MAI",
+    "name": "Mai Stablecoin",
+    "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10238.png",
+    "price": { "USD": 0.5278283347393774 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "WOO",
+    "name": "Wootrade Network",
+    "address": "0x871f2F2ff935FD1eD867842FF2a7bfD051A5E527",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7501.png",
+    "price": { "USD": 0.1459468865830708 }
+  },
+  {
+    "chainKey": "optimism",
+    "decimals": 18,
+    "symbol": "VESTG",
+    "name": "veSTG",
+    "address": "0x43d2761ed16C89A2C4342e2B16A3C61Ccf88f05B",
+    "price": { "USD": null }
+  }
+]

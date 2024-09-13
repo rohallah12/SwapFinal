@@ -1,0 +1,549 @@
+[
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "BNB",
+    "name": "BNB",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/1839.png",
+    "price": { "USD": 531.2035596137322 },
+    "native": true,
+    "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "USDC",
+    "name": "USD Coin",
+    "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png",
+    "price": { "USD": 1.0000807074636562 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "USDT",
+    "name": "Tether USD",
+    "address": "0x55d398326f99059fF775485246999027B3197955",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/825.png",
+    "price": { "USD": 1.0003339188305853 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 6,
+    "symbol": "USDV",
+    "address": "0x323665443CEf804A3b5206103304BD4872EA4253",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28443.png",
+    "price": { "USD": 0.9963845381777027 },
+    "name": "USDV"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "PEPE",
+    "address": "0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24478.png",
+    "price": { "USD": 0.000007456327453867615 },
+    "name": "PEPE"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "ARKEN",
+    "address": "0x1D4268a58ee7EC2cc2Af5d70a2fD2B3a896527a2",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/23969.png",
+    "price": { "USD": 0.0005859279890353592 },
+    "name": "ARKEN"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "BETS",
+    "address": "0x94025780a1aB58868D9B2dBBB775f44b32e8E6e5",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/18453.png",
+    "price": { "USD": 0.00032610445486566756 },
+    "name": "BETS"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "Cake",
+    "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7186.png",
+    "price": { "USD": 1.7163432359957926 },
+    "name": "Cake"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "DEGEN",
+    "address": "0x1a131F7B106D58f33eAf0fE5B47DB2f2045E5732",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24276.png",
+    "price": { "USD": 6.733796164578411e-8 },
+    "name": "DEGEN"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "IDIA",
+    "address": "0x0b15Ddf19D47E6a86A56148fb4aFFFc6929BcB89",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10933.png",
+    "price": { "USD": 0.026775914916121548 },
+    "name": "IDIA"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "JOE",
+    "address": "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/11396.png",
+    "price": { "USD": 0.3097230683122775 },
+    "name": "JOE"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "LIF3",
+    "address": "0x336f374198c872Ba760e85af9c6331C3c5A535d3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/20611.png",
+    "price": { "USD": 0.003253796816927324 },
+    "name": "LIF3"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "LSHARE",
+    "address": "0x0c08638473CAfbCa3beb113616A1871F4bfaD4f9",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/20728.png",
+    "price": { "USD": null },
+    "name": "LSHARE"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "MAV",
+    "address": "0xd691d9a68C887BDF34DA8c36f63487333ACfD103",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/18037.png",
+    "price": { "USD": 0.19787133031754436 },
+    "name": "MAV"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "METIS",
+    "address": "0xceCB301c2e2A04dD631428C386DD21db70716F8a",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/9640.png",
+    "price": { "USD": 31.44648383803275 },
+    "name": "METIS"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "MIM",
+    "address": "0xfE19F0B51438fd612f6FD59C1dbB3eA319f433Ba",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/162.png",
+    "price": { "USD": 0.9976511300959452 },
+    "name": "MIM"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "MTVT",
+    "address": "0xB92c5e0135A510A4a3A8803F143d2Cb085BBAf73",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/15974.png",
+    "price": { "USD": 0.0020237965688367924 },
+    "name": "MTVT"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "OX",
+    "address": "0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29530.png",
+    "price": { "USD": 0.004218433704169384 },
+    "name": "OX"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "RDNT",
+    "address": "0xf7DE7E8A6bd59ED41a4b5fe50278b3B7f31384dF",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/21106.png",
+    "price": { "USD": 0.09214513812003347 },
+    "name": "RDNT"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 6,
+    "symbol": "REUNI",
+    "address": "0x9ed7E4B1BFF939ad473dA5E7a218C771D1569456",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/23996.png",
+    "price": { "USD": 0.1381163300650941 },
+    "name": "REUNI"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "STG",
+    "address": "0xB0D502E938ed5f4df2E681fE6E419ff29631d62b",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/18934.png",
+    "price": { "USD": 0.2858226112695806 },
+    "name": "STG"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "TENET",
+    "address": "0x788D86E00ab31Db859C3d6b80d5a9375801d7f2A",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24892.png",
+    "price": { "USD": 0.005522709962588802 },
+    "name": "TENET"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "unshETH",
+    "address": "0x0Ae38f7E10A43B5b2fB064B42a2f4514cbA909ef",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png",
+    "price": { "USD": 2482.824111963704 },
+    "name": "unshETH"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "USH",
+    "address": "0x91d6d6aF7635B7b23A8CED9508117965180e2362",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/23837.png",
+    "price": { "USD": 0.0016982022082493806 },
+    "name": "USH"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "WAGMI",
+    "address": "0xaf20f5f19698f1D19351028cd7103B63D30DE7d7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28184.png",
+    "price": { "USD": 0.005120512796938577 },
+    "name": "WAGMI"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "WBNB",
+    "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7192.png",
+    "price": { "USD": 534.2157287647093 },
+    "name": "WBNB"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "WNCG",
+    "address": "0x52242cbAb41e290E9E17CCC50Cc437bB60020a9d",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/11222.png",
+    "price": { "USD": 0.046811205140488685 },
+    "name": "WNCG"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "SFUND",
+    "address": "0x477bC8d23c634C154061869478bce96BE6045D12",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/8972.png",
+    "price": { "USD": 1.0899904142334493 },
+    "name": "SFUND"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "QI",
+    "address": "0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10237.png",
+    "price": { "USD": 0.00037615458194920895 },
+    "name": "QI"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "wstETH",
+    "address": "0x2Bbbdf97295F73175b12CC087cF446765931e1C3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/12409.png",
+    "price": { "USD": 2947.2188678381717 },
+    "name": "wstETH"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "SHRAP",
+    "address": "0x31e4efe290973ebE91b3a875a7994f650942D28F",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28363.png",
+    "price": { "USD": 0.023225562301757697 },
+    "name": "SHRAP"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "UNB",
+    "address": "0xB2E787C6C83D6d75f466371a2966b27a8b700828",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7846.png",
+    "price": { "USD": 0.00043823549416460494 },
+    "name": "UNB"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "OLE",
+    "address": "0xB7E2713CF55cf4b469B5a8421Ae6Fc0ED18F1467",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/20719.png",
+    "price": { "USD": 0.008391395958113957 },
+    "name": "OLE"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "OMNI",
+    "address": "0x9e20461bc2c4c980f62f1B279D71734207a6A356",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28827.png",
+    "price": { "USD": 0.00003662191861892651 },
+    "name": "OMNI"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "IRL",
+    "address": "0xa80221D067603e30060F75E2458AA361f8eE5402",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/20858.png",
+    "price": { "USD": 0.011114959905811156 },
+    "name": "IRL"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "OOE",
+    "address": "0x8ea5219a16c2dbF1d6335A6aa0c6bd45c50347C5",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/9938.png",
+    "price": { "USD": 0.007566166286111032 },
+    "name": "OOE"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "INSP",
+    "address": "0x8D279274789CceC8af94a430A5996eAaCE9609A9",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28610.png",
+    "price": { "USD": 0.026181205813743013 },
+    "name": "INSP"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "OSAK",
+    "address": "0x11cd72f7A4B699c67f225ca8aBb20bC9F8DB90c7",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/27533.png",
+    "price": { "USD": 2.7259857431423086e-7 },
+    "name": "OSAK"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "ABOND",
+    "address": "0x34294AfABCbaFfc616ac6614F6d2e17260b78BEd",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29157.png",
+    "price": { "USD": 0.007687183479481261 },
+    "name": "ABOND"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "DMAIL",
+    "address": "0xcC6f1e1B87cfCbe9221808d2d85C501aab0B5192",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/19779.png",
+    "price": { "USD": 0.3003734348830943 },
+    "name": "DMAIL"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "EDU",
+    "address": "0xBdEAe1cA48894A1759A8374D63925f21f2Ee2639",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24613.png",
+    "price": { "USD": 0.5443534656661323 },
+    "name": "EDU"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "weETH",
+    "name": "Wrapped eETH",
+    "address": "0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/28568.png",
+    "price": { "USD": 2507.708542403687 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "ITP",
+    "address": "0x2b1D36f5B61AdDAf7DA7ebbd11B35FD8cfb0DE31",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/22877.png",
+    "price": { "USD": 0.07250933625664681 },
+    "name": "ITP"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "ENA",
+    "address": "0x58538e6A46E07434d7E7375Bc268D3cb839C0133",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/30171.png",
+    "price": { "USD": 0.23157415359542707 },
+    "name": "ENA"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "XVS",
+    "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7288.png",
+    "price": { "USD": 6.526695501378135 },
+    "name": "XVS"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 8,
+    "symbol": "BTC.b",
+    "address": "0x2297aEbD383787A160DD0d9F71508148769342E3",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/1.png",
+    "price": { "USD": 58631.23289151471 },
+    "name": "BTC.b"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "OX.old",
+    "address": "0x78a0A62Fba6Fb21A83FE8a3433d44C73a4017A6f",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/26543.png",
+    "price": { "USD": 0.004364158588220813 },
+    "name": "OX.old"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "sUSDe",
+    "address": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29471.png",
+    "price": { "USD": 1.0966821471212616 },
+    "name": "sUSDe"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "USDe",
+    "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/29470.png",
+    "price": { "USD": 0.9989341797098055 },
+    "name": "USDe"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "ZRO",
+    "address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/26997.png",
+    "price": { "USD": 3.5734684381292614 },
+    "name": "ZRO"
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "pxETH",
+    "name": "Pirex Ether OFT",
+    "address": "0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4",
+    "price": { "USD": 2488.35 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "SAND",
+    "name": "SAND",
+    "address": "0xac531Eb26Ca1d21b85126De8FB87E80E09002DcF",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/6210.png",
+    "price": { "USD": 0.24933282809464974 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "CYBER",
+    "name": "CyberConnect",
+    "address": "0x14778860E937f509e651192a90589dE711Fb88a9",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/24781.png",
+    "price": { "USD": 3.3003556175352537 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "MAHA",
+    "name": "MAHA.xyz",
+    "address": "0x6A661312938D22A2A0e27F585073E4406903990a",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/8043.png",
+    "price": { "USD": 1.6089769084157481 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "apxETH",
+    "name": "Autocompounding Pirex Ether OFT",
+    "address": "0x16Ed8E219cde31E14a80dCb6C9127A5EC6e88e46",
+    "price": { "USD": null }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "BUSD",
+    "name": "BUSD Token",
+    "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/4687.png",
+    "price": { "USD": 1.0000049285497616 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "USDD",
+    "name": "Decentralized USD",
+    "address": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/19891.png",
+    "price": { "USD": 0.999426098556486 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "MAI",
+    "name": "Mai Stablecoin",
+    "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/10238.png",
+    "price": { "USD": 0.5278283347393774 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "Metis",
+    "name": "Metis Token",
+    "address": "0xe552Fb52a4F19e44ef5A967632DBc320B0820639",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/9640.png",
+    "price": { "USD": 31.44648383803275 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "WOO",
+    "name": "Wootrade Network",
+    "address": "0x4691937a7508860F876c9c0a2a617E7d9E945D4B",
+    "icon": "https://s2.coinmarketcap.com/static/img/coins/128x128/7501.png",
+    "price": { "USD": 0.1459468865830708 }
+  },
+  {
+    "chainKey": "bsc",
+    "decimals": 18,
+    "symbol": "VESTG",
+    "name": "veSTG",
+    "address": "0xD4888870C8686c748232719051b677791dBDa26D",
+    "price": { "USD": null }
+  }
+]

@@ -16,7 +16,10 @@ const Header = () => {
                 <a href="#" className="text-white hover:text-gray-600">
                   About
                 </a>
-                <a href="#" className="text-white hover:text-gray-600">
+                <a
+                  href="https://t.me/Rsm_Eth"
+                  className="text-white hover:text-gray-600"
+                >
                   Contact
                 </a>
               </nav>

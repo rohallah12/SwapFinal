@@ -63,7 +63,7 @@ export default function Home() {
   const [allowance, setAllowance] = useState(ethers.getBigInt(0));
   const [txParams, setTxParams] = useState({});
   const [srcInUSD, setSrcInUsd] = useState(0);
-  const [srcDstUSD, setDstInUsd] = useState(0);
+  const [destInUSD, setDstInUsd] = useState(0);
   const [amountIn, setAmountIn] = useState(ethers.getBigInt(0));
   const [amountOut, setAmountOut] = useState(ethers.getBigInt(0));
   const [slippage, setSlippage] = useState(50);
@@ -98,28 +98,32 @@ export default function Home() {
       return setAmounts(["", ""]);
     }
     setLastChange(changing_token);
-    if (changing_token == 0) {
-      const amountIn = ethers.parseUnits(amount, selectedToken[0].decimals);
-      const amountOut =
-        (amountIn * rates[0]) /
-        ethers.parseUnits("1", selectedToken[0].decimals);
-      setAmounts([
-        amount.toString(),
-        ethers.formatUnits(amountOut, selectedToken[1].decimals),
-      ]);
-      setAmountIn(amountIn);
-      setAmountOut(amountOut);
-    } else {
-      const amountIn = ethers.parseUnits(amount, selectedToken[1].decimals);
-      const amountOut =
-        (amountIn * rates[1]) /
-        ethers.parseUnits("1", selectedToken[1].decimals);
-      setAmounts([
-        ethers.formatUnits(amountOut, selectedToken[0].decimals),
-        amount.toString(),
-      ]);
-      setAmountIn(amountIn);
-      setAmountOut(amountOut);
+    try {
+      if (changing_token == 0) {
+        const amountIn = ethers.parseUnits(amount, selectedToken[0].decimals);
+        const amountOut =
+          (amountIn * rates[0]) /
+          ethers.parseUnits("1", selectedToken[0].decimals);
+        setAmounts([
+          amount.toString(),
+          ethers.formatUnits(amountOut, selectedToken[1].decimals),
+        ]);
+        setAmountIn(amountIn);
+        setAmountOut(amountOut);
+      } else {
+        const amountIn = ethers.parseUnits(amount, selectedToken[1].decimals);
+        const amountOut =
+          (amountIn * rates[1]) /
+          ethers.parseUnits("1", selectedToken[1].decimals);
+        setAmounts([
+          ethers.formatUnits(amountOut, selectedToken[0].decimals),
+          amount.toString(),
+        ]);
+        setAmountIn(amountIn);
+        setAmountOut(amountOut);
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -209,15 +213,23 @@ export default function Home() {
         //rest of the code
         const rate_A_to_B = ethers.getBigInt(result.destAmount);
         const rate_B_to_A =
-          (ethers.parseUnits("1", selectedToken[0].decimals * 2) *
-            ethers.parseUnits("1", selectedToken[1].decimals)) /
+          (ethers.parseUnits("1", selectedToken[0].decimals) *
+            ethers.parseUnits("1", selectedToken[1].decimals * 2)) /
           (rate_A_to_B * ethers.parseUnits("1", selectedToken[1].decimals));
         setGasFee(result.gasCostUSD);
         setRates([rate_A_to_B, rate_B_to_A]);
         getAllowance(result.tokenTransferProxy);
         setSpender(result.tokenTransferProxy);
+        setSrcInUsd(parseFloat(result.srcUSD));
+        setDstInUsd(
+          parseFloat(result.destUSD) /
+            parseFloat(
+              ethers.formatUnits(result.destAmount, selectedToken[1].decimals)
+            )
+        );
       }
     } catch (e) {
+      console.log(e);
     } finally {
       setLoadingRate(false);
     }
@@ -565,8 +577,13 @@ export default function Home() {
         <div className=" bg-black rounded-lg p-1 h-[20rem] w-[90%] md:w-[60%] lg:w-[40%]">
           <div className="bg-gray-800 flex items-center w-full h-[49.5%] rounded-lg">
             <div className="w-full">
-              <div className="px-4">
+              <div className="flex items-center gap-2 px-4">
                 <span className="text-white">Sell</span>
+                <span className="text-gray-400 text-xs">
+                  {srcInUSD
+                    ? "$" + fixedPoint((srcInUSD * amounts[0]).toString(), 6)
+                    : "$0"}
+                </span>
               </div>
               <div className="flex justify-between py-3 px-5">
                 <input
@@ -610,20 +627,19 @@ export default function Home() {
                 )}
               </div>
               <span
-                className="ps-7 text-xs text-gray-500"
+                className="ps-7 text-xs text-gray-500 hover:cursor-pointer"
                 onClick={() =>
-                  setAmounts([
+                  convertToTarget(
+                    0,
                     ethers.formatUnits(
                       balances[0] || "0",
                       selectedToken[0].decimals
-                    ),
-                    amounts[1],
-                  ])
+                    )
+                  )
                 }
               >
                 {selectedToken[0].address
-                  ? selectedToken[0].symbol +
-                    " Balance: " +
+                  ? "Balance: " +
                     ethers.formatUnits(
                       balances[0] || "0",
                       selectedToken[0].decimals
@@ -642,8 +658,13 @@ export default function Home() {
           </div>
           <div className="flex items-center bg-gray-800 h-[49.5%] rounded-lg mt-1">
             <div className="w-full">
-              <div className="px-4">
+              <div className="px-4 flex items-center gap-2">
                 <span className="text-white">Buy</span>
+                <span className="text-gray-400 text-xs">
+                  {destInUSD
+                    ? "$" + fixedPoint((destInUSD * amounts[1]).toString(), 6)
+                    : "$0"}
+                </span>
               </div>
               <div className="flex justify-between py-3 px-5">
                 <input
@@ -685,20 +706,19 @@ export default function Home() {
                 )}
               </div>
               <span
-                className="ps-7 text-xs text-gray-500"
+                className="ps-7 text-xs text-gray-500 hover:cursor-pointer"
                 onClick={() =>
-                  setAmounts([
-                    amounts[0],
+                  convertToTarget(
+                    1,
                     ethers.formatUnits(
                       balances[1] || "0",
                       selectedToken[1].decimals
-                    ),
-                  ])
+                    )
+                  )
                 }
               >
                 {selectedToken[1].address
-                  ? selectedToken[1].symbol +
-                    " Balance: " +
+                  ? "Balance: " +
                     ethers.formatUnits(
                       balances[1] || "0",
                       selectedToken[1].decimals
@@ -710,7 +730,7 @@ export default function Home() {
           <Accordion name={"Details"}>
             <div className="md:flex justify-between items-start bg-black h-fit text-white p-5">
               <div className="flex flex-col items-start w-1/2 text-gray-300">
-                <span className="text-xs">
+                <span>
                   <FiberManualRecordIcon
                     sx={{ width: 10 }}
                     color="primary"
@@ -718,17 +738,17 @@ export default function Home() {
                   <b className="ml-1">Slippage:</b>{" "}
                   <span className="text-gray-400">{slippage / 100}%</span>
                 </span>
-                <span className="text-xs">
+                <span>
                   <FiberManualRecordIcon
                     sx={{ width: 10 }}
                     color="primary"
                   ></FiberManualRecordIcon>
                   <b className="ml-1">Gas Cost:</b>{" "}
-                  <span className="text-gray-400">{gasFee.toString()}$</span>
+                  <span className="text-gray-400">${gasFee.toString()}</span>
                 </span>
               </div>
               <div className="flex flex-col items-start w-1/2 text-gray-300">
-                <span className="flex gap-1 items-center text-xs">
+                <span className="flex gap-1 items-center">
                   <FiberManualRecordIcon
                     sx={{ width: 10 }}
                     color="primary"
@@ -740,7 +760,7 @@ export default function Home() {
                   </span>
                   <Logo token={selectedToken[0]} size={15}></Logo>
                 </span>
-                <span className="flex gap-1 items-center text-xs">
+                <span className="flex gap-1 items-center">
                   <FiberManualRecordIcon
                     sx={{ width: 10 }}
                     color="primary"
@@ -785,15 +805,24 @@ export default function Home() {
           <div className="flex justify-between items-start bg-black opacity-70 h-fit rounded-lg mt-3 text-white p-5">
             <div className="flex flex-col items-start w-[40%] gap-1">
               <span className="font-bold mb-2 text-gray-300">Links</span>
-              <span className="flex items-center gap-1 hover:text-blue-600 cursor-pointer">
+              <a
+                className="flex items-center gap-1 hover:text-blue-600 cursor-pointer"
+                href="https://t.me/Rsm_Eth"
+              >
                 <img src="Telegram.svg" width={20}></img>Telegram
-              </span>
-              <span className="flex items-center gap-1 hover:text-blue-600 cursor-pointer">
+              </a>
+              <a
+                href="https://x.com/Rsam_eth"
+                className="flex items-center gap-1 hover:text-blue-600 cursor-pointer"
+              >
                 <img src="XIcon.svg" width={20}></img>Twitter
-              </span>
-              <span className="flex items-center gap-1 hover:text-blue-600 cursor-pointer">
+              </a>
+              <a
+                className="flex items-center gap-1 hover:text-blue-600 cursor-pointer"
+                href="https://swap-final-two.vercel.app/"
+              >
                 <img src="web.png" width={20}></img>Website
-              </span>
+              </a>
               <span className="flex items-center gap-1 hover:text-blue-600 cursor-pointer">
                 <img
                   src={getExplorerLogoForChain(chainId ? chainId : 1)}
@@ -812,9 +841,12 @@ export default function Home() {
                 <b className="text-[#0d54ff]">Base</b> and{" "}
                 <b className="text-[#e74041]">Avalanche</b> network.
               </span>
-              <span className="text-xs text-blue-600 mt-4 font-bold hover:text-blue-400 hover:cursor-pointer">
+              <a
+                className="text-xs text-blue-600 mt-4 font-bold hover:text-blue-400 hover:cursor-pointer"
+                href="https://t.me/Rsm_Eth"
+              >
                 Want to customize this swap for your project? click here
-              </span>
+              </a>
             </div>
           </div>
         </div>

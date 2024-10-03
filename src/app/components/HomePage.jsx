@@ -1,5 +1,11 @@
 "use client";
-import { ChevronDown, ArrowDown, ETH, Gear } from "@/assets/icons/index";
+import {
+  ChevronDown,
+  ArrowDown,
+  ETH,
+  Gear,
+  SiteLogo,
+} from "@/assets/icons/index";
 import React, { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import Box from "@mui/material/Box";
@@ -478,8 +484,16 @@ export default function Home() {
           handleSelect={handleSelect}
         />
         <div className="w-[80%] md:w-[60%] lg:w-[60%] flex justify-center items-center mb-4">
-          <h2 className=" text-white text-xl md:text-5xl text-center lg:text-6xl">
-            Multi-Chain Swap Demo
+          <h2 className=" text-white text-3xl md:text-5xl text-center lg:text-6xl">
+            <a
+              href="https://fourtis.io"
+              className="text-white hover:text-gray-600 flex items-center"
+            >
+              <SiteLogo size={45}></SiteLogo>
+              <span className="ml-1 hover:cursor">
+                <b className="text-[#2e887d]">FourDex</b> Swap
+              </span>
+            </a>
           </h2>
         </div>
         <div className="flex m-1 justify-end px-1 w-[90%] md:w-[60%] lg:w-[40%]">
@@ -617,6 +631,7 @@ export default function Home() {
                     style={{
                       opacity: getDisabled() ? "0.7" : "1",
                       pointerEvents: getDisabled() ? "none" : "all",
+                      backgroundColor: "#2e887d",
                     }}
                     onClick={() => handleOpen(1)}
                     className="flex justify-between items-center btn bg-blue-600 rounded-full p-2 text-white"
@@ -696,6 +711,7 @@ export default function Home() {
                     style={{
                       opacity: getDisabled() ? "0.7" : "1",
                       pointerEvents: getDisabled() ? "none" : "all",
+                      backgroundColor: '#2e887d'
                     }}
                     onClick={() => handleOpen(2)}
                     className="flex justify-between items-center btn bg-blue-600 rounded-full p-2 text-white"
@@ -796,7 +812,7 @@ export default function Home() {
                   swap();
                 }
               }}
-              className={`hover:bg-blue-500 bg-blue-600 text-white rounded-lg p-5 w-full mt-1 flex justify-center`}
+              className={`hover:bg-white hover:text-[#2e887d] bg-[#2e887d] text-white rounded-lg p-5 w-full mt-1 flex justify-center`}
             >
               {getButtonText()}
             </button>
@@ -807,29 +823,22 @@ export default function Home() {
               <span className="font-bold mb-2 text-gray-300">Links</span>
               <a
                 className="flex items-center gap-1 hover:text-blue-600 cursor-pointer"
-                href="https://t.me/Rsm_Eth"
+                href="https://t.me/fourtisglobal"
               >
                 <img src="Telegram.svg" width={20}></img>Telegram
               </a>
               <a
-                href="https://x.com/Rsam_eth"
+                href="https://x.com/fourtisofficial?s=21"
                 className="flex items-center gap-1 hover:text-blue-600 cursor-pointer"
               >
                 <img src="XIcon.svg" width={20}></img>Twitter
               </a>
               <a
                 className="flex items-center gap-1 hover:text-blue-600 cursor-pointer"
-                href="https://swap-final-two.vercel.app/"
+                href="https://fourtis.io"
               >
                 <img src="web.png" width={20}></img>Website
               </a>
-              <span className="flex items-center gap-1 hover:text-blue-600 cursor-pointer">
-                <img
-                  src={getExplorerLogoForChain(chainId ? chainId : 1)}
-                  width={20}
-                ></img>
-                Token
-              </span>
             </div>
             <div className="flex flex-col items-start w-[60%]">
               <span className="font-bold mb-2 text-gray-300">About us...</span>
@@ -841,12 +850,12 @@ export default function Home() {
                 <b className="text-[#0d54ff]">Base</b> and{" "}
                 <b className="text-[#e74041]">Avalanche</b> network.
               </span>
-              <a
+              {/* <a
                 className="text-xs text-blue-600 mt-4 font-bold hover:text-blue-400 hover:cursor-pointer"
                 href="https://t.me/Rsm_Eth"
               >
                 Want to customize this swap for your project? click here
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

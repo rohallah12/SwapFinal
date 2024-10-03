@@ -21,6 +21,7 @@ import X from "./X";
 import BASE from "./BASE";
 import Gear from "./Gear";
 import Unknown from "./question";
+import SiteLogo from "./Fourtis";
 export {
   MagnifingGlasses,
   ChevronDown,
@@ -45,4 +46,5 @@ export {
   DAI,
   X,
   Unknown,
+  SiteLogo
 };

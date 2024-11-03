@@ -42,9 +42,6 @@ export default function Home() {
     choosetype: "Auto",
     tradeOption: false,
   });
-  const [provider, setProvider] = useState(
-    new ethers.JsonRpcProvider(Providers[1])
-  );
 
   const [balances, setBalances] = useState([
     ethers.getBigInt(0),
@@ -86,8 +83,12 @@ export default function Home() {
   const SwapCoins = () => {
     const first = selectedToken[0];
     const last = selectedToken[1];
+    const srcUsd = srcInUSD;
+    const dstUsd = destInUSD;
+    setSrcInUsd(dstUsd);
+    setDstInUsd(srcUsd);
     setSelectedToken([last, first]);
-    setAmounts([ethers.getBigInt(0), ethers.getBigInt(0)]);
+    setAmounts(["0", "0"]);
     setAmountOut(ethers.getBigInt(0));
     setAmountIn(ethers.getBigInt(0));
     setBalances([balances[1], balances[0]]);
@@ -250,6 +251,9 @@ export default function Home() {
   const getAllowance = async (spender) => {
     if (isConnected) {
       if (address) {
+        const provider = new ethers.JsonRpcProvider(
+          Providers[chainId ? chainId : 1]
+        );
         try {
           if (selectedToken[0].native) {
             return setAllowance(ethers.MaxUint256);
@@ -363,12 +367,14 @@ export default function Home() {
   const fetchBalances = async (token, index) => {
     if (isConnected) {
       if (address) {
+        const provider = new ethers.JsonRpcProvider(Providers[chainId]);
         if (token?.address) {
           let newBalances = [...balances];
           let balance;
           try {
             if (token.native) {
               balance = await provider.getBalance(address);
+              console.log("fetching native balance here for ", address);
             } else {
               const tokenContract = new ethers.Contract(
                 token.address,
@@ -378,7 +384,11 @@ export default function Home() {
               balance = await tokenContract.balanceOf(address);
             }
             newBalances[index] = balance;
+            console.log(
+              `balance of ${token.address} on ${chainId} for ${address} is ${balance.toString()}`
+            );
           } catch (e) {
+            console.log(e);
             newBalances[index] = ethers.getBigInt(0);
           }
           setBalances([...newBalances]);
@@ -437,9 +447,9 @@ export default function Home() {
   //@dev If account or connection status changed (disconnected/connected) update balancesj
   useEffect(() => {
     if (isConnected) {
-      console.log('is connected')
+      console.log("is connected");
       if (address) {
-        console.log('address exists, fetching balances...')
+        console.log("address exists, fetching balances...");
         fetchBalances(selectedToken[0], 0);
         fetchBalances(selectedToken[1], 1);
       }
@@ -452,7 +462,6 @@ export default function Home() {
       if (Tokens[chainId]) {
         setDefaultTokens(Tokens[chainId]);
         setSelectedToken([Tokens[chainId][0], {}]);
-        setProvider(new ethers.JsonRpcProvider(Providers[chainId]));
       } else {
         notif.show("This chain is not supported!", {
           autoHideDuration: 3000,
@@ -477,7 +486,9 @@ export default function Home() {
       <Header />
       <main className=" flex flex-col items-center py-24">
         <Modal
-          provider={provider}
+          provider={
+            new ethers.JsonRpcProvider(Providers[chainId ? chainId : 1])
+          }
           Tokens={defaultTokens}
           open={open}
           handleOpen={handleOpen}
@@ -713,7 +724,7 @@ export default function Home() {
                     style={{
                       opacity: getDisabled() ? "0.7" : "1",
                       pointerEvents: getDisabled() ? "none" : "all",
-                      backgroundColor: '#2e887d'
+                      backgroundColor: "#2e887d",
                     }}
                     onClick={() => handleOpen(2)}
                     className="flex justify-between items-center btn bg-blue-600 rounded-full p-2 text-white"

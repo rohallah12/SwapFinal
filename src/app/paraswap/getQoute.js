@@ -25,7 +25,8 @@ export const getQoute = async (
     maxImpact: 10,
     isDirectFeeTransfer: true,
     partnerFeeBps: 100,
-    partnerAddress: '0x2146eDa06a5823e840f0F99A34bF41C6CC9CE504'
+    partnerAddress: '0x2146eDa06a5823e840f0F99A34bF41C6CC9CE504',
+    partner: '0x2146eDa06a5823e840f0F99A34bF41C6CC9CE504'
   };
   console.log(chain);
   console.log(data)

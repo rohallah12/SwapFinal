@@ -23,13 +23,17 @@ export const getQoute = async (
     side: "SELL",
     userAddress,
     maxImpact: 10,
+    isDirectFeeTransfer: true,
+    partnerFeeBps: 100,
+    partnerAddress: '0x2146eDa06a5823e840f0F99A34bF41C6CC9CE504'
   };
   console.log(chain);
+  console.log(data)
   if (isSwap) {
     if (!receiver || !userAddress) {
       throw Error("receiver and userAddress must be set!");
     }
-    data = { ...data, receiver, userAddress, isDirectFeeTransfer: true, partnerFeeBps: 100, partnerAddress: '0x2146eDa06a5823e840f0F99A34bF41C6CC9CE504' };
+    data = { ...data, receiver, userAddress };
   }
   const params = new URLSearchParams(data);
   try {

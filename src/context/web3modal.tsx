@@ -58,7 +58,7 @@ export const chains = [
 const metadata = {
   name: "SuperTransfer",
   description: "SuperTransfer dApp, swap, transfer cross-chain",
-  url: "https://mywebsite.com", // origin must match your domain & subdomain
+  url: "https://fourtis.io", // origin must match your domain & subdomain
   icons: ["https://avatars.mywebsite.com/"],
 };
 
@@ -79,8 +79,7 @@ const ethersConfig = defaultConfig({
 createWeb3Modal({
   ethersConfig,
   chains,
-  projectId,
-  enableAnalytics: true, // Optional - defaults to your Cloud configuration
+  projectId
 });
 
 export function Web3Modal({ children }) {

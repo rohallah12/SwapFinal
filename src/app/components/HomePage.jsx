@@ -437,7 +437,9 @@ export default function Home() {
   //@dev If account or connection status changed (disconnected/connected) update balancesj
   useEffect(() => {
     if (isConnected) {
+      console.log('is connected')
       if (address) {
+        console.log('address exists, fetching balances...')
         fetchBalances(selectedToken[0], 0);
         fetchBalances(selectedToken[1], 1);
       }
